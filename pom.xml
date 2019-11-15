@@ -86,7 +86,7 @@
 				<sonar.sources>src/test/java</sonar.sources>
 				<sonar.tests></sonar.tests>
 				<sonar.projectName>${project.name}-tests</sonar.projectName>
-				<sonar.projetcKey>${project.groupId};${project.artifactId}-tests</sonar.projetcKey>
+				<sonar.projetcKey>${project.groupId}:${project.artifactId}-tests</sonar.projetcKey>
 			</properties>
 		</profile>
 	</profiles>
