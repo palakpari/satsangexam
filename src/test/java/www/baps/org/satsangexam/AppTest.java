@@ -17,5 +17,6 @@ public void testEmailGenerator() {
 
 	logger.info("https://www.baps.org/SatsangExam/Studymaterials.aspx");
 	Assert.assertEquals(true, 5==5);
+	System.out.println("Hello");
 }
 }
