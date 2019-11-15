@@ -15,7 +15,7 @@ private final Logger logger = LoggerFactory.getLogger(AppTest.class);
 @Test()
 public void testEmailGenerator() {
 
-	
+	logger.info("https://www.baps.org/SatsangExam/Studymaterials.aspx");
 	Assert.assertEquals(true, 5==5);
 }
 }
