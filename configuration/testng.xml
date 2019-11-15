@@ -2,7 +2,7 @@
 <suite name="example suite 1" verbose="1" >
   <test name="Regression suite 1" >
     <classes>
-      <class name="com.yoshallc.mortgage.mortgage.AppTest"/>
+      <class name="www.baps.org.satsangexam.AppTest"/>
     </classes>
  </test>
 </suite>

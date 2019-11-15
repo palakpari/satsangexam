@@ -63,7 +63,7 @@
 					<version>3.0.0-M3</version>
 					<configuration>
 						<suiteXmlFiles>
-							<suiteXmlFile>testng.xml</suiteXmlFile>
+							<suiteXmlFile>configuration/testng.xml</suiteXmlFile>
 						</suiteXmlFiles>
 						<redirecttestOutputToFile>true</redirecttestOutputToFile>
 						<excludes>
