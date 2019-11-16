@@ -1,5 +1,7 @@
 package www.baps.org.satsangexam;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -13,10 +15,17 @@ public class AppTest {
 private final Logger logger = LoggerFactory.getLogger(AppTest.class);
 
 @Test()
-public void testEmailGenerator() {
+public void openBrowser() {
+	
+	System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
 
-	logger.info("https://www.baps.org/SatsangExam/Studymaterials.aspx");
-	Assert.assertEquals(true, 5==5);
-	System.out.println("Hello");
+	// Open Google
+	driver.get("https://www.bapssatsangexams.org/");
+	driver.manage().window().maximize();
+
+	// Close browser
+	driver.close();
+
 }
 }

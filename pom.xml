@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>www.baps.org</groupId>
-  <artifactId>satsangexam</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>www.baps.org</groupId>
+	<artifactId>satsangexam</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>satsangexam</name>
-  <url>http://maven.apache.org</url>
+	<name>satsangexam</name>
+	<url>http://maven.apache.org</url>
 
-  	<properties>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -23,6 +23,13 @@
 			<artifactId>testng</artifactId>
 			<version>6.10</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>3.141.59</version>
 		</dependency>
 
 		<dependency>
@@ -44,9 +51,6 @@
 			<version>1.7.29</version>
 			<scope>test</scope>
 		</dependency>
-
-
-
 	</dependencies>
 	<build>
 		<pluginManagement>
@@ -71,6 +75,21 @@
 						</excludes>
 					</configuration>
 				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.jvnet.wagon-svn</groupId>
+							<artifactId>wagon-svn</artifactId>
+							<version>1.12</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 
@@ -90,4 +109,8 @@
 			</properties>
 		</profile>
 	</profiles>
+
+	<!-- <distributionManagement> <repository> <id>central</id> <name>Lenovo-Desktop-releases</name> 
+		<url>http://localhost:8040/artifactory/libs-release-local</url> </repository> 
+		</distributionManagement> -->
 </project>
