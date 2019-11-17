@@ -35,16 +35,7 @@ public class AppTest {
 	}
 	
 	
-	/*@BeforeTest
-	public void preTestSetup() {
-		
-		System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://www.bapssatsangexams.org/");
-		PageFactory.initElements(driver, this);
-	}*/
-
+	
 	@Test()
 	public void validateSEerLogoIsDisplayed() throws InterruptedException {
 		
@@ -60,12 +51,7 @@ public class AppTest {
 
 	}
 	
-	/*@AfterTest
-	public void postTest() {
 		
-		driver.close();
-	}*/
-	
 	
 	@AfterSuite
 	public void postTest() {
