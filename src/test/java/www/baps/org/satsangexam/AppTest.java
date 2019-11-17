@@ -1,31 +1,76 @@
 package www.baps.org.satsangexam;
 
+import static org.testng.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.testng.Assert;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
-private final Logger logger = LoggerFactory.getLogger(AppTest.class);
 
-@Test()
-public void openBrowser() {
+	@FindBy(className = "seer-logo")
+	private WebElement logoElement;
 	
-	System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver.exe");
-	WebDriver driver=new ChromeDriver();
+	@FindBy(className = "seer-subtitle")
+	private WebElement logosubtitle;
+	
 
-	// Open Google
-	driver.get("https://www.bapssatsangexams.org/");
-	driver.manage().window().maximize();
+	private WebDriver driver;
+	
+	@BeforeSuite
+	public void preTestSetup() {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.bapssatsangexams.org/");
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	/*@BeforeTest
+	public void preTestSetup() {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.bapssatsangexams.org/");
+		PageFactory.initElements(driver, this);
+	}*/
 
-	// Close browser
-	driver.close();
+	@Test()
+	public void validateSEerLogoIsDisplayed() throws InterruptedException {
+		
+		assertEquals(true, logoElement.isDisplayed());
 
-}
+	}
+	
+	
+	@Test()
+	public void validateSEerLogoSubtitleIsDisplayed() throws InterruptedException {
+		
+		assertEquals(true, logosubtitle.isDisplayed());
+
+	}
+	
+	/*@AfterTest
+	public void postTest() {
+		
+		driver.close();
+	}*/
+	
+	
+	@AfterSuite
+	public void postTest() {
+		
+		driver.close();
+	}
+
 }

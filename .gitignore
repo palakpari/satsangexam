@@ -4,3 +4,4 @@ targate/
 .settings
 test-output/
 /target/
+chromedriver/
