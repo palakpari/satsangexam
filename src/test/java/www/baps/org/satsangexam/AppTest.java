@@ -48,6 +48,7 @@ public class AppTest {
 	public void validateSEerLogoSubtitleIsDisplayed() throws InterruptedException {
 		
 		assertEquals(true, logosubtitle.isDisplayed());
+		System.out.println("This is a feature branch change.");
 
 	}
 	
