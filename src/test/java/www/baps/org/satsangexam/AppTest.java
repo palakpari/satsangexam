@@ -48,7 +48,7 @@ public class AppTest {
 	public void validateSEerLogoSubtitleIsDisplayed() throws InterruptedException {
 		
 		assertEquals(true, logosubtitle.isDisplayed());
-		System.out.println("Hello this should break build due to sonar quality gate");
+		
 	}
 	
 		
