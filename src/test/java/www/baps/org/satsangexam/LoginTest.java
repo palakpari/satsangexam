@@ -1,6 +1,11 @@
 package www.baps.org.satsangexam;
 
 import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -33,8 +38,20 @@ public class LoginTest {
 
 	private WebDriver driver;
 	
+	Properties props = new Properties();
+	
 	@BeforeSuite
-	public void preTestSetup() {
+	public void preTestSetup() throws IOException {
+		
+		
+		
+		InputStream inputStream = LoginTest.class.getClassLoader().getResourceAsStream("credentials.properties");
+
+		//now can use this input stream as usually, i.e. to load as properties
+		
+		props.load(inputStream);
+		
+		
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -64,9 +81,9 @@ public class LoginTest {
 	public void login() {
 		
 		txtUserName.click();
-		txtUserName.sendKeys("jc_nilesh1980");
+		txtUserName.sendKeys(props.get("baps.satsangexam.username").toString());
 		txtPassword.click();
-		txtPassword.sendKeys("Baps2005");
+		txtPassword.sendKeys(props.get("baps.satsangexam.password").toString());
 		btnSignIn.click();
 	}
 	

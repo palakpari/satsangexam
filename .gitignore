@@ -5,3 +5,4 @@ targate/
 test-output/
 /target/
 chromedriver/
+credentials.properties
