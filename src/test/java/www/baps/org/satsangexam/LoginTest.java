@@ -13,13 +13,22 @@ import org.testng.annotations.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class LoginTest {
 
 	@FindBy(className = "seer-logo")
 	private WebElement logoElement;
 	
 	@FindBy(className = "seer-subtitle")
 	private WebElement logosubtitle;
+	
+	@FindBy(id ="UserName")
+	private WebElement txtUserName;
+	
+	@FindBy(id ="Password")
+	private WebElement txtPassword;
+	
+	@FindBy(xpath="//button[contains(text(),'Sign In')]")
+	private WebElement btnSignIn;
 	
 
 	private WebDriver driver;
@@ -49,6 +58,16 @@ public class AppTest {
 		
 		assertEquals(true, logosubtitle.isDisplayed());
 		
+	}
+	
+	@Test()
+	public void login() {
+		
+		txtUserName.click();
+		txtUserName.sendKeys("jc_nilesh1980");
+		txtPassword.click();
+		txtPassword.sendKeys("Baps2005");
+		btnSignIn.click();
 	}
 	
 		
