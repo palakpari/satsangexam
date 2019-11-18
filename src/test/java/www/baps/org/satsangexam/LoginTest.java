@@ -45,7 +45,7 @@ public class LoginTest {
 		
 		
 		
-		InputStream inputStream = LoginTest.class.getClassLoader().getResourceAsStream("/credentials.properties");
+		InputStream inputStream = LoginTest.class.getClassLoader().getResourceAsStream("credentials.properties");
 
 		//now can use this input stream as usually, i.e. to load as properties
 		
