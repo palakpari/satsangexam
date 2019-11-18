@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,6 +36,9 @@ public class LoginTest {
 	@FindBy(xpath="//button[contains(text(),'Sign In')]")
 	private WebElement btnSignIn;
 	
+	@FindBy(xpath="//span[contains(text(),'Examinee ')]")
+	private WebElement txtExaminee;
+	
 
 	private WebDriver driver;
 	
@@ -55,6 +59,7 @@ public class LoginTest {
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\workspace\\satsangexam\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10000,TimeUnit.MILLISECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://www.bapssatsangexams.org/");
 		PageFactory.initElements(driver, this);
@@ -78,13 +83,16 @@ public class LoginTest {
 	}
 	
 	@Test()
-	public void login() {
+	public void login() throws InterruptedException {
 		
 		txtUserName.click();
 		txtUserName.sendKeys(props.get("baps.satsangexam.username").toString());
 		txtPassword.click();
 		txtPassword.sendKeys(props.get("baps.satsangexam.password").toString());
 		btnSignIn.click();
+		Thread.sleep(5000);
+		assertEquals(true, txtExaminee.isDisplayed());
+		
 	}
 	
 		
